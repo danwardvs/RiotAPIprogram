@@ -115,7 +115,10 @@ def team_tests(summoner):
 def main():
     
     command = input("Enter a command: ")
-  
+
+    if "version" in command:
+        print("The newest Leauge of Legends version is "+ w.static_get_versions()[0])
+    
     if "champ title" in command:
         champion = input("Enter a champion name: ")
         static_champ_list = w.static_get_champion_list()
@@ -125,12 +128,6 @@ def main():
         username = input("Enter a summoner name: ")
         me = w.get_summoner(name=username)
         stats = w.get_stat_summary(me['id'])
-        request = w.can_make_request()
-        print(request)
-    
-    
-        print("The newest Leauge of Legends version is "+ w.static_get_versions()[0])
-
     
         print("Your username is " + me['name'] + ".")
         print("You are level " + str(me['summonerLevel']) + ".")

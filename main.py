@@ -115,7 +115,7 @@ def team_tests(summoner):
 def main():
     
     command = input("Enter a command: ")
-
+    
     if "version" in command:
         print("The newest Leauge of Legends version is "+ w.static_get_versions()[0])
     
@@ -143,6 +143,19 @@ def main():
         print("In " + stats['playerStatSummaries'][8]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][8]['wins']) + " wins.")
         print("In " + stats['playerStatSummaries'][9]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][9]['wins']) + " wins.")
         print("In " + stats['playerStatSummaries'][10]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][10]['wins']) + " wins.")
+    if "masteries" in command:
+        username = input("Enter a summoner name: ")
+        me = w.get_summoner(name=username)
+        player_id = w.get_summoner(username)['id']
+        my_mastery_pages =  w.get_mastery_pages([me['id'], ])
+        print(len(my_mastery_pages[str(player_id)]['pages']))
+        i=0
+        while i<len(my_mastery_pages[str(player_id)]['pages']):
+            print(my_mastery_pages[str(player_id)]['pages'][i]['name'])
+            i+=1
+        
+        
+        
     
 
 if __name__ == '__main__':

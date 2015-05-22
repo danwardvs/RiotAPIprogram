@@ -114,11 +114,12 @@ def team_tests(summoner):
 
 def main():
 
-    
-    me = w.get_summoner(name='danwardvs')
+    username = input("Please enter your Summoner Name: ")
+    me = w.get_summoner(name=username)
     stats = w.get_stat_summary(me['id'])
     request = w.can_make_request()
     print(request)
+    
     
     print("The newest Leauge of Legends version is "+ w.static_get_versions()[0])
 

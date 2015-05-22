@@ -113,25 +113,39 @@ def team_tests(summoner):
 
 
 def main():
+    
+    command = input("Enter a command: ")
+  
+    if "champ title" in command:
+        champion = input("Enter a champion name: ")
+        static_champ_list = w.static_get_champion_list()
+        print(static_champ_list['data'][champion]['title'])
 
-    username = input("Please enter your Summoner Name: ")
-    me = w.get_summoner(name=username)
-    stats = w.get_stat_summary(me['id'])
-    request = w.can_make_request()
-    print(request)
+    if "stats" in command:
+        username = input("Enter a summoner name: ")
+        me = w.get_summoner(name=username)
+        stats = w.get_stat_summary(me['id'])
+        request = w.can_make_request()
+        print(request)
     
     
-    print("The newest Leauge of Legends version is "+ w.static_get_versions()[0])
+        print("The newest Leauge of Legends version is "+ w.static_get_versions()[0])
 
     
-    print("Your username is " + me['name'] + ".")
-    print("You are level " + str(me['summonerLevel']) + ".")
-    
-    print("In " + stats['playerStatSummaries'][0]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][0]['wins']) + " wins.")
-
-    
-
-
+        print("Your username is " + me['name'] + ".")
+        print("You are level " + str(me['summonerLevel']) + ".")
+        
+        print("In " + stats['playerStatSummaries'][0]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][0]['wins']) + " wins.")
+        print("In " + stats['playerStatSummaries'][1]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][1]['wins']) + " wins.")
+        print("In " + stats['playerStatSummaries'][2]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][2]['wins']) + " wins.")
+        print("In " + stats['playerStatSummaries'][3]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][3]['wins']) + " wins.")
+        print("In " + stats['playerStatSummaries'][4]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][4]['wins']) + " wins.")
+        print("In " + stats['playerStatSummaries'][5]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][5]['wins']) + " wins.")
+        print("In " + stats['playerStatSummaries'][6]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][6]['wins']) + " wins.")
+        print("In " + stats['playerStatSummaries'][7]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][7]['wins']) + " wins.")
+        print("In " + stats['playerStatSummaries'][8]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][8]['wins']) + " wins.")
+        print("In " + stats['playerStatSummaries'][9]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][9]['wins']) + " wins.")
+        print("In " + stats['playerStatSummaries'][10]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][10]['wins']) + " wins.")
     
 
 if __name__ == '__main__':

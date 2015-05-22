@@ -113,47 +113,44 @@ def team_tests(summoner):
 
 
 def main():
-    
-    command = input("Enter a command: ")
-    
-    if "version" in command:
-        print("The newest Leauge of Legends version is "+ w.static_get_versions()[0])
-    
-    if "champ title" in command:
-        champion = input("Enter a champion name: ")
-        static_champ_list = w.static_get_champion_list()
-        print(static_champ_list['data'][champion]['title'])
 
-    if "stats" in command:
-        username = input("Enter a summoner name: ")
-        me = w.get_summoner(name=username)
-        stats = w.get_stat_summary(me['id'])
+    crapsticks = 1
+    while crapsticks == 1: 
     
-        print("Your username is " + me['name'] + ".")
-        print("You are level " + str(me['summonerLevel']) + ".")
+        command = input("Enter a command: ")
+    
+        if "version" in command:
+            print("The newest Leauge of Legends version is "+ w.static_get_versions()[0])
+    
+        if "champ title" in command:
+            champion = input("Enter a champion name: ")
+            static_champ_list = w.static_get_champion_list()
+            print(static_champ_list['data'][champion]['title'])
+
+        if "stats" in command:
+            username = input("Enter a summoner name: ")
+            me = w.get_summoner(name=username)
+            stats = w.get_stat_summary(me['id'])
+    
+            print("Your username is " + me['name'] + ".")
+            print("You are level " + str(me['summonerLevel']) + ".")
+            i=0
+            while i<len(stats['playerStatSummaries']):
+                print("In " + stats['playerStatSummaries'][i]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][i]['wins']) + " wins.")
+                i+=1
         
-        print("In " + stats['playerStatSummaries'][0]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][0]['wins']) + " wins.")
-        print("In " + stats['playerStatSummaries'][1]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][1]['wins']) + " wins.")
-        print("In " + stats['playerStatSummaries'][2]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][2]['wins']) + " wins.")
-        print("In " + stats['playerStatSummaries'][3]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][3]['wins']) + " wins.")
-        print("In " + stats['playerStatSummaries'][4]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][4]['wins']) + " wins.")
-        print("In " + stats['playerStatSummaries'][5]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][5]['wins']) + " wins.")
-        print("In " + stats['playerStatSummaries'][6]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][6]['wins']) + " wins.")
-        print("In " + stats['playerStatSummaries'][7]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][7]['wins']) + " wins.")
-        print("In " + stats['playerStatSummaries'][8]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][8]['wins']) + " wins.")
-        print("In " + stats['playerStatSummaries'][9]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][9]['wins']) + " wins.")
-        print("In " + stats['playerStatSummaries'][10]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][10]['wins']) + " wins.")
-    if "masteries" in command:
-        username = input("Enter a summoner name: ")
-        me = w.get_summoner(name=username)
-        player_id = w.get_summoner(username)['id']
-        my_mastery_pages =  w.get_mastery_pages([me['id'], ])
-        print(len(my_mastery_pages[str(player_id)]['pages']))
-        i=0
-        while i<len(my_mastery_pages[str(player_id)]['pages']):
-            print(my_mastery_pages[str(player_id)]['pages'][i]['name'])
-            i+=1
         
+        if "masteries" in command:
+            username = input("Enter a summoner name: ")
+            me = w.get_summoner(name=username)
+            player_id = w.get_summoner(username)['id']
+            my_mastery_pages =  w.get_mastery_pages([me['id'], ])
+            print(username + " has " + str(len(my_mastery_pages[str(player_id)]['pages'])) + " mastery pages.")
+            i=0
+            while i<len(my_mastery_pages[str(player_id)]['pages']):
+                print(my_mastery_pages[str(player_id)]['pages'][i]['name'])
+                i+=1
+            
         
         
     

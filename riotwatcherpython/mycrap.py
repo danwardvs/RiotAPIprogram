@@ -113,9 +113,25 @@ def team_tests(summoner):
 
 
 def main():
-    print(w.can_make_request())
-                                      
+
+    
+    me = w.get_summoner(name='danwardvs')
+    stats = w.get_stat_summary(me['id'])
+    request = w.can_make_request()
+    print(request)
+    
     print("The newest Leauge of Legends version is "+ w.static_get_versions()[0])
+
+    
+    print("Your username is " + me['name'] + ".")
+    print("You are level " + str(me['summonerLevel']) + ".")
+    
+    print("In " + stats['playerStatSummaries'][0]['playerStatSummaryType'] + " you have " + str(stats['playerStatSummaries'][0]['wins']) + " wins.")
+
+    
+
+
+    
 
 if __name__ == '__main__':
     main()

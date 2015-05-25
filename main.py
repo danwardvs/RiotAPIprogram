@@ -114,13 +114,20 @@ def team_tests(summoner):
 
 def main():
 
-    crapsticks = 1
-    while crapsticks == 1: 
+    thiswillonlyequal1 = 1
+    while thiswillonlyequal1 == 1: 
     
         command = input("Enter a command: ")
     
         if "version" in command:
             print("The newest Leauge of Legends version is "+ w.static_get_versions()[0])
+
+        if "match history" in command:
+            username = input("Enter a summoner name: ")
+            me = w.get_summoner(name=username)
+            match_history = w.get_match_history(username)
+            
+            
     
         if "champ title" in command:
             champion = input("Enter a champion name: ")
